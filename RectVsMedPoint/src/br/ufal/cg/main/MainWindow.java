@@ -28,7 +28,6 @@ import javax.swing.UIManager;
 import net.miginfocom.swing.MigLayout;
 import br.ufal.cg.algorithm.geometry.InsidePoligonAlgorithm;
 import br.ufal.cg.algorithm.geometry.InsidePoligonQ01;
-import br.ufal.cg.algorithm.geometry.InsidePoligonQ2;
 import br.ufal.cg.algorithm.line.BresenhamsLineMouseListener;
 import br.ufal.cg.algorithm.line.RectEquationLineMouseListener;
 import br.ufal.cg.renderer.GridRenderer;
@@ -128,27 +127,13 @@ public class MainWindow extends JFrame {
 				});
 		group.add(insidePoligon);		
 		
-		final InsidePoligonAlgorithm insidePoligonListener2 = new InsidePoligonQ2(
-				renderer, mainThis);
-		final JToggleButton insidePoligon2 = new JToggleButton(
-				new AbstractAction("Inside Poligon Q02") {
-
-					private static final long serialVersionUID = 1L;
-
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						renderer.setActiveAction(insidePoligonListener2);
-					}
-				});
-		group.add(insidePoligon2);	
-		
+				
 		// Polígono
 		addSeparator(buttonsPanel, "Polígonos");
 
 		buttonsPanel.add(rectEquation, "wrap,growx");
 		buttonsPanel.add(bresenhamsLine, "wrap 20, growx");
 		buttonsPanel.add(insidePoligon, "wrap, growx");
-		buttonsPanel.add(insidePoligon2, "wrap 20, growx");
 		
 		buttonsPanel.add(new JLabel("Cor:"), "split 2");
 		buttonsPanel.add(linesColorChooser = new JButton(new ChooseColorAction(
